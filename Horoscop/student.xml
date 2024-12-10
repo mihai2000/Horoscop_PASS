@@ -1,18 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <students>
-	<student>
-		<NumarMatricol>13579</NumarMatricol>
-		<Nume>Dan</Nume>
-		<Medie>9.0</Medie>
-	</student>
-	<student>
-		<NumarMatricol>24680</NumarMatricol>
-		<Nume>Mihai</Nume>
-		<Medie>8.5</Medie>
-	</student>
-	<student>
-		<NumarMatricol>54321</NumarMatricol>
-		<Nume>Ioana</Nume>
-		<Medie>7.5</Medie>
-	</student>
+  <student>
+    <NumarMatricol>13579</NumarMatricol>
+    <Nume>Dan</Nume>
+    <Medie>9.0</Medie>
+  </student>
+  <student>
+    <NumarMatricol>24680</NumarMatricol>
+    <Nume>Mihai</Nume>
+    <Medie>8.5</Medie>
+  </student>
+  <student>
+    <NumarMatricol>54321</NumarMatricol>
+    <Nume>Ioana</Nume>
+    <Medie>7.5</Medie>
+  </student>
 </students>

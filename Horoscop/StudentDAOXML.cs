@@ -37,5 +37,45 @@ public class StudentDAOXML : IStudentDAO
         }
         return null;
     }
-}
 
+    public void AddStudent(Student student)
+    {
+        XDocument doc = XDocument.Load(xmlFilePath);
+        XElement newStudent = new XElement("student",
+            new XElement("NumarMatricol", student.NumarMatricol),
+            new XElement("Nume", student.Nume),
+            new XElement("Medie", student.Medie));
+
+        doc.Element("students").Add(newStudent);
+        doc.Save(xmlFilePath);
+    }
+
+    public bool UpdateStudent(string numarMatricol, Student updatedStudent)
+    {
+        XDocument doc = XDocument.Load(xmlFilePath);
+        var element = doc.Descendants("student")
+                         .FirstOrDefault(x => x.Element("NumarMatricol").Value == numarMatricol);
+        if (element != null)
+        {
+            element.Element("Nume").Value = updatedStudent.Nume;
+            element.Element("Medie").Value = updatedStudent.Medie.ToString();
+            doc.Save(xmlFilePath);
+            return true;
+        }
+        return false;
+    }
+
+    public bool DeleteStudent(string numarMatricol)
+    {
+        XDocument doc = XDocument.Load(xmlFilePath);
+        var element = doc.Descendants("student")
+                         .FirstOrDefault(x => x.Element("NumarMatricol").Value == numarMatricol);
+        if (element != null)
+        {
+            element.Remove();
+            doc.Save(xmlFilePath);
+            return true;
+        }
+        return false;
+    }
+}

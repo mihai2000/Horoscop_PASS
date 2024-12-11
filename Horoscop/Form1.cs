@@ -7,7 +7,15 @@
         public Form1()
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            ButtonXML.Click += new EventHandler(ButtonXML_Click);
+            ButtonSQL.Click += new EventHandler(ButtonSQL_Click);
+            ButtonCreate.Click += new EventHandler(ButtonCreate_Click);
+            ButtonUpdate.Click += new EventHandler(ButtonUpdate_Click);
+            ButtonDelete.Click += new EventHandler(ButtonDelete_Click);
+            ButtonGet.Click += new EventHandler(ButtonGet_Click);
+            ButtonPrezice.Click += new EventHandler(ButtonPrezice_Click);
+            ButtonRefresh.Click += new EventHandler(ButtonRefresh_Click);
+            //InitializeCustomComponents();
         }
         private void InitializeCustomComponents()
         {
@@ -193,17 +201,21 @@
         {
             studentDAO = new StudentDAOSQL();
             LoadStudents();
+            Title.Text = "Horoscop Studenti - SQL";
+
         }
 
         private void ButtonXML_Click(object sender, EventArgs e)
         {
             studentDAO = new StudentDAOXML();
             LoadStudents();
+            Title.Text = "Horoscop Studenti - XML";
+
         }
         private void LoadStudents()
         {
-            Controls.Clear();
-            InitializeCustomComponents();
+            //Controls.Clear();
+            //InitializeCustomComponents();
             List<Student> students = studentDAO.GetStudents();
             dataGridViewStudents.DataSource = students;
         }
